@@ -2,134 +2,170 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A To Z Collection - Fashion Store</title>
+
     <style>
+
         body {
-            margin:0;
-            font-family:Arial, sans-serif;
-            background:#f7f7f7;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
         }
-        header {
-            background:#000;
-            color:#fff;
-            padding:15px;
-            text-align:center;
-            font-size:24px;
-            font-weight:bold;
+
+        /* HEADER */
+        .header {
+            background: black;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
-        .banner {
-            width:100%;
-            height:250px;
-            background:url('https://i.imgur.com/6Iej2cM.jpeg') center/cover no-repeat;
-            border-radius:0 0 20px 20px;
+
+        /* HERO SECTION */
+        .hero {
+            background: url('https://i.imgur.com/4N7Hc3U.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 260px;
+            position: relative;
         }
-        h2 {
-            text-align:center;
-            margin-top:25px;
+
+        .hero_text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px black;
         }
-        .products {
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:15px;
-            padding:15px;
+
+        /* PRODUCT GRID */
+        .section_title {
+            font-size: 22px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 25px;
         }
-        .product-card {
-            background:#fff;
-            padding:10px;
-            border-radius:10px;
-            box-shadow:0 2px 4px rgba(0,0,0,0.2);
-            text-align:center;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 15px;
         }
-        .product-card img {
-            width:100%;
-            border-radius:10px;
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .product-name {
-            font-weight:bold;
-            margin:10px 0 5px;
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
         }
+
+        .card .info {
+            padding: 10px;
+            text-align: center;
+        }
+
         .price {
-            color:green;
-            font-size:18px;
-            font-weight:bold;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
         }
-        .btn {
-            display:inline-block;
-            margin-top:10px;
-            padding:10px 15px;
-            background:#000;
-            color:#fff;
-            text-decoration:none;
-            border-radius:5px;
+
+        /* WHATSAPP BUTTON */
+        .whatsapp {
+            width: 90%;
+            margin: 20px auto;
+            display: block;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
         }
-        .contact {
-            margin:20px;
-            padding:20px;
-            background:#fff;
-            border-radius:10px;
-            box-shadow:0 2px 4px rgba(0,0,0,0.2);
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: black;
+            color: white;
+            margin-top: 30px;
         }
-        footer {
-            text-align:center;
-            padding:10px;
-            background:#000;
-            color:#fff;
-            margin-top:30px;
-        }
+
     </style>
 </head>
 <body>
 
-<header>A To Z Collection</header>
+    <div class="header">A To Z Collection</div>
 
-<div class="banner"></div>
-
-<h2>Our Latest Collection</h2>
-
-<div class="products">
-
-    <div class="product-card">
-        <img src="https://i.imgur.com/ydX7tqM.jpeg">
-        <div class="product-name">Kids Panda Outfit</div>
-        <div class="price">₹499</div>
-        <a href="https://wa.me/8887728146" class="btn">Order Now</a>
+    <div class="hero">
+        <div class="hero_text">Latest Fashion For Everyone</div>
     </div>
 
-    <div class="product-card">
-        <img src="https://i.imgur.com/E56hp1s.jpeg">
-        <div class="product-name">Men’s Hoodie</div>
-        <div class="price">₹699</div>
-        <a href="https://wa.me/8887728146" class="btn">Order Now</a>
+    <div class="section_title">🔥 Trending Products</div>
+
+    <div class="grid">
+
+        <!-- PRODUCT 1 -->
+        <div class="card">
+            <img src="https://i.imgur.com/30u4Xxg.jpeg" alt="Product">
+            <div class="info">
+                <div>Panda Outfit For Kids</div>
+                <div class="price">₹499</div>
+            </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="card">
+            <img src="https://i.imgur.com/ZwZ8Wma.jpeg" alt="Product">
+            <div class="info">
+                <div>Winter Hoodie</div>
+                <div class="price">₹699</div>
+            </div>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="card">
+            <img src="https://i.imgur.com/hRfxpr4.jpeg" alt="Product">
+            <div class="info">
+                <div>Stylish Kids Wear</div>
+                <div class="price">₹399</div>
+            </div>
+        </div>
+
+        <!-- PRODUCT 4 -->
+        <div class="card">
+            <img src="https://i.imgur.com/hf2IoSG.jpeg" alt="Product">
+            <div class="info">
+                <div>Trendy Boys T-shirt</div>
+                <div class="price">₹299</div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="product-card">
-        <img src="https://i.imgur.com/W5M7j1t.jpeg">
-        <div class="product-name">Trendy T-Shirt</div>
-        <div class="price">₹299</div>
-        <a href="https://wa.me/8887728146" class="btn">Order Now</a>
+    <!-- WHATSAPP BUTTON -->
+    <a class="whatsapp" href="https://wa.me/8887728146" target="_blank">
+        Order on WhatsApp 📩
+    </a>
+
+    <div class="footer">
+        © 2025 A To Z Collection | All Rights Reserved
     </div>
-
-    <div class="product-card">
-        <img src="https://i.imgur.com/49wUOes.jpeg">
-        <div class="product-name">Women Stylish Top</div>
-        <div class="price">₹399</div>
-        <a href="https://wa.me/8887728146" class="btn">Order Now</a>
-    </div>
-
-</div>
-
-<div class="contact">
-    <h2>Contact Us</h2>
-    <p><b>Store:</b> A To Z Collection</p>
-    <p><b>WhatsApp:</b> 8887728146</p>
-    <p><b>Location:</b> Siddharth Nagar, Uttar Pradesh</p>
-    <a href="https://wa.me/8887728146" class="btn">Chat on WhatsApp</a>
-</div>
-
-<footer>
-    © 2025 A To Z Collection | All Rights Reserved
-</footer>
 
 </body>
 </html>
