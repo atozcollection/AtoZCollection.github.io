@@ -1,0 +1,1444 @@
+# بهبود طراحی فروشگاه مد A To Z Collection
+
+من کد شما را بهینه و بهبود خواهم داد با طراحی مدرن‌تر، قابلیت‌های بیشتر و تجربه کاربری بهتر.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A To Z Collection — Fashion Store</title>
+  <meta name="description" content="A To Z Collection - Shoes, Hoodies, T-Shirts, Kids Wear. Order on WhatsApp or pay via UPI." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ec4899;
+      --primary-dark: #be185d;
+      --secondary: #8b5cf6;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --page-bg: #f8fafc;
+      --maxw: 1200px;
+      --radius: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--page-bg);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    /* Header */
+    header {
+      background: var(--card-bg);
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 12px 0;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+    }
+    
+    .search-container {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+    
+    .search-container input {
+      width: 100%;
+      padding: 12px 20px 12px 45px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+      background: var(--light);
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    
+    .search-container input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .header-btn {
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .header-btn.ghost {
+      background: transparent;
+      color: var(--dark);
+    }
+    
+    .header-btn.ghost:hover {
+      background: var(--light);
+    }
+    
+    .header-btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .header-btn.primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    .cart-btn {
+      position: relative;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    
+    /* Hero Slider */
+    .hero-slider {
+      margin: 24px auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 400px;
+      position: relative;
+    }
+    
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .slide.active {
+      opacity: 1;
+    }
+    
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+    }
+    
+    .slide-content {
+      max-width: 600px;
+      color: white;
+    }
+    
+    .slide-content h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    
+    .slide-content p {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      opacity: 0.9;
+    }
+    
+    .slide-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .slide-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .slider-nav {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .slider-dot.active {
+      background: white;
+      transform: scale(1.2);
+    }
+    
+    /* Categories */
+    .categories-section {
+      margin: 40px auto;
+    }
+    
+    .categories {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding: 10px 5px 20px;
+    }
+    
+    .category-card {
+      min-width: 160px;
+      height: 180px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .category-card.active {
+      box-shadow: 0 0 0 3px var(--primary);
+    }
+    
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .category-card .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    /* Products */
+    .products-section {
+      margin: 40px auto;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    
+    .product-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .product-info {
+      padding: 18px;
+    }
+    
+    .product-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    
+    .product-category {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+    
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .current-price {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+    
+    .original-price {
+      color: var(--muted);
+      text-decoration: line-through;
+      font-size: 0.9rem;
+    }
+    
+    .product-actions {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .btn {
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      flex: 1;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-secondary {
+      background: var(--light);
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--border);
+    }
+    
+    .btn-icon {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Cart Drawer */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 100%;
+      background: var(--card-bg);
+      box-shadow: var(--shadow-lg);
+      z-index: 1100;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    
+    .cart-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .cart-header h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    
+    .close-cart {
+      background: var(--light);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    
+    .cart-item-details {
+      flex: 1;
+    }
+    
+    .cart-item-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .cart-item-price {
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .cart-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    
+    .quantity-value {
+      width: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .remove-item {
+      color: #ef4444;
+      background: transparent;
+      font-size: 0.9rem;
+      margin-left: 10px;
+    }
+    
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      background: var(--light);
+    }
+    
+    .cart-summary {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .cart-total {
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .cart-actions {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .cart-actions .btn {
+      flex: 1;
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px auto;
+    }
+    
+    .feature-card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    /* Contact & Checkout */
+    .contact-checkout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 40px auto;
+    }
+    
+    .contact-card, .checkout-card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .contact-info {
+      margin-top: 15px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    
+    .contact-item i {
+      color: var(--primary);
+      width: 20px;
+    }
+    
+    .policy-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .policy-link {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-brand {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+    
+    .footer-description {
+      opacity: 0.8;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Floating Action Button */
+    .fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+      z-index: 100;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .fab:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background: var(--card-bg);
+      width: 90%;
+      max-width: 600px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transform: translateY(30px);
+      transition: transform 0.4s ease;
+    }
+    
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+    
+    .modal-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .modal-body {
+      padding: 20px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    
+    .close-modal {
+      background: transparent;
+      font-size: 1.5rem;
+      color: var(--muted);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .slide-content h1 {
+        font-size: 2.2rem;
+      }
+      
+      .slide-overlay {
+        padding: 0 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .search-container {
+        order: 3;
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      
+      .hero-slider {
+        height: 300px;
+      }
+      
+      .slide-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .slide-content p {
+        font-size: 1rem;
+      }
+      
+      .slide-overlay {
+        padding: 0 20px;
+      }
+      
+      .cart-drawer {
+        width: 100%;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-actions {
+        gap: 8px;
+      }
+      
+      .header-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      .hero-slider {
+        height: 250px;
+      }
+      
+      .slide-content h1 {
+        font-size: 1.5rem;
+      }
+      
+      .slide-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      
+      .cart-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="brand" onclick="scrollToTop()">
+        <div class="brand-logo">AZ</div>
+        <span>A To Z Collection</span>
+      </div>
+      
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search for products, brands, categories...">
+      </div>
+      
+      <div class="header-actions">
+        <button class="header-btn ghost" onclick="openAboutModal()">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+        </button>
+        <button class="header-btn ghost" onclick="openContactModal()">
+          <i class="fas fa-phone-alt"></i>
+          <span>Contact</span>
+        </button>
+        <button class="header-btn primary cart-btn" onclick="toggleCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Slider -->
+  <section class="hero-slider" id="heroSlider">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=1350&q=80')">
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h1>New Season Collection</h1>
+          <p>Discover the latest trends in fashion with our exclusive collection</p>
+          <a href="#products" class="slide-btn">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1350&q=80')">
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h1>Premium Quality Wear</h1>
+          <p>Comfort meets style in our premium collection</p>
+          <a href="#products" class="slide-btn">Explore Collection</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1350&q=80')">
+      <div class="slide-overlay">
+        <div class="slide-content">
+          <h1>Up To 50% Off</h1>
+          <p>Don't miss our special offers and discounts</p>
+          <a href="#products" class="slide-btn">View Offers</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="slider-nav">
+      <div class="slider-dot active" onclick="goToSlide(0)"></div>
+      <div class="slider-dot" onclick="goToSlide(1)"></div>
+      <div class="slider-dot" onclick="goToSlide(2)"></div>
+    </div>
+  </section>
+  
+  <!-- Features -->
+  <section class="container">
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shipping-fast"></i>
+        </div>
+        <h3 class="feature-title">Free Delivery</h3>
+        <p>Free delivery on orders above ₹999</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-undo-alt"></i>
+        </div>
+        <h3 class="feature-title">Easy Returns</h3>
+        <p>7-day return policy for all products</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="feature-title">Secure Payment</h3>
+        <p>100% secure payment options</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3 class="feature-title">24/7 Support</h3>
+        <p>Dedicated customer support</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Categories -->
+  <section class="container categories-section">
+    <h2 class="section-title">Shop By Category</h2>
+    <div class="categories" id="categoriesList"></div>
+  </section>
+  
+  <!-- Products -->
+  <section class="container products-section" id="products">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+  
+  <!-- Contact & Checkout -->
+  <section class="container contact-checkout">
+    <div class="checkout-card">
+      <h2 class="section-title">Checkout</h2>
+      <p id="checkoutInfo">Add items to cart and choose your preferred payment method.</p>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-wallet"></i>
+          <span>UPI: <strong id="upiText">your-upi@bank</strong></span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>Phone: <strong id="phoneText">8887728146</strong></span>
+        </div>
+      </div>
+      
+      <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="orderWhatsApp()">
+          <i class="fab fa-whatsapp"></i>
+          Order on WhatsApp
+        </button>
+        <button class="btn btn-secondary" onclick="copyUPI()">
+          <i class="fas fa-copy"></i>
+          Copy UPI ID
+        </button>
+        <button class="btn btn-secondary" onclick="mailtoInvoice()">
+          <i class="fas fa-envelope"></i>
+          Send Invoice
+        </button>
+      </div>
+    </div>
+    
+    <div class="contact-card">
+      <h2 class="section-title">Contact Us</h2>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>Email: <a href="mailto:atozcollection149@gmail.com" id="emailText">atozcollection149@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Address: <span id="addressText">Rajendra Nagar, Bansi, Siddhartha Nagar</span></span>
+        </div>
+      </div>
+      
+      <div class="policy-links">
+        <a href="#" class="policy-link" onclick="showPolicy('privacy')">Privacy Policy</a>
+        <a href="#" class="policy-link" onclick="showPolicy('return')">Return Policy</a>
+        <a href="#" class="policy-link" onclick="showPolicy('terms')">Terms & Conditions</a>
+        <a href="#" class="policy-link" onclick="showPolicy('shipping')">Shipping Policy</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Cart Drawer -->
+  <div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart (<span id="cartTotalCount">0</span>)</h3>
+      <button class="close-cart" onclick="toggleCart()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be inserted here -->
+      <div class="empty-cart" id="emptyCart" style="text-align: center; padding: 40px 20px; color: var(--muted);">
+        <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+        <h3>Your cart is empty</h3>
+        <p>Add some products to get started</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-summary">
+        <span>Total:</span>
+        <span class="cart-total" id="cartTotal">₹0</span>
+      </div>
+      
+      <div class="cart-actions">
+        <button class="btn btn-primary" onclick="orderWhatsApp()">
+          <i class="fab fa-whatsapp"></i>
+          Order on WhatsApp
+        </button>
+        <button class="btn btn-secondary" onclick="clearCart()">
+          <i class="fas fa-trash-alt"></i>
+          Clear Cart
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <a href="#" class="footer-brand" onclick="scrollToTop()">A To Z Collection</a>
+          <p class="footer-description">Your one-stop destination for fashion. Quality products at affordable prices.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#products">Shop Now</a></li>
+            <li><a href="#" onclick="openAboutModal()">About Us</a></li>
+            <li><a href="#" onclick="openContactModal()">Contact Us</a></li>
+            <li><a href="#" onclick="showPolicy('return')">Return Policy</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Categories</h4>
+          <ul class="footer-links" id="footerCategories">
+            <!-- Categories will be inserted here -->
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Contact Info</h4>
+          <ul class="footer-links">
+            <li><i class="fas fa-phone-alt"></i> +91 8887728146</li>
+            <li><i class="fas fa-envelope"></i> atozcollection149@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Rajendra Nagar, Bansi, Siddhartha Nagar</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> A To Z Collection. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i></p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Floating Action Button -->
+  <div class="fab" onclick="orderWhatsApp()">
+    <i class="fab fa-whatsapp"></i>
+  </div>
+  
+  <!-- Modals -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalProductTitle">Product Details</h3>
+        <button class="close-modal" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="modalProductBody">
+        <!-- Product details will be inserted here -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="aboutModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>About A To Z Collection</h3>
+        <button class="close-modal" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Welcome to <strong>A To Z Collection</strong>, your one-stop destination for fashionable clothing and accessories. We offer a wide range of products including shoes, hoodies, t-shirts, kids wear, and much more.</p>
+        <p>Our mission is to provide high-quality products at affordable prices, ensuring customer satisfaction with every purchase. With easy ordering via WhatsApp and secure payment options, shopping with us is convenient and hassle-free.</p>
+        <p>Whether you're looking for trendy outfits for daily wear or special occasions, A To Z Collection has something for everyone. Thank you for choosing us!</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Contact Us</h3>
+        <button class="close-modal" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span><strong>Phone:</strong> +91 8887728146</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span><strong>Email:</strong> atozcollection149@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><strong>Address:</strong> Rajendra Nagar, Bansi, Siddhartha Nagar</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span><strong>WhatsApp:</strong> +91 8887728146</span>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <p><strong>Business Hours:</strong></p>
+          <p>Monday - Saturday: 10:00 AM - 8:00 PM</p>
+          <p>Sunday: 11:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="policyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="policyTitle">Policy</h3>
+        <button class="close-modal" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="policyContent">
+        <!-- Policy content will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Brand Information
+  const BRAND = {
+    name: "A To Z Collection",
+    whatsappNumber: "+91 8887728146",
+    whatsappShort: "918887728146",
+    upiId: "your-upi@bank",
+    email: "atozcollection149@gmail.com",
+    phone: "8887728146",
+    address: "Rajendra Nagar, Bansi, Siddhartha Nagar",
+    social: {
+      facebook: "#",
+      instagram: "#",
+      twitter: "#"
+    }
+  };
+
+  // Product Data
+  const PRODUCTS = [
+    { id: 1, title: "Men Slim Fit Jeans", price: 899, category: "Men", img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80", desc: "Comfortable slim fit jeans with premium denim fabric. Available in multiple sizes.", featured: true, badge: "Bestseller" },
+    { id: 2, title: "Women Floral Kurti", price: 749, originalPrice: 999, category: "Women", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80", desc: "Elegant floral kurti for daily wear. Made from breathable cotton fabric.", featured: true, badge: "Sale" },
+    { id: 3, title: "Kids Panda Outfit", price: 499, category: "Kids", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80", desc: "Soft and comfortable fabric suitable for kids aged 9 months to 5 years.", featured: true },
+    { id: 4, title: "Classic Black Hoodie", price: 999, category: "Men", img: "https://images.unsplash.com/photo-1602810315981-7c13764d6b4e?auto=format&fit=crop&w=900&q=80", desc: "Warm and cozy hoodie perfect for casual wear. Available in multiple colors.", featured: true, badge: "Popular" },
+    { id: 5, title: "Women Casual T-Shirt", price: 299, originalPrice: 499, category: "Women", img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80", desc: "Breathable cotton t-shirt with modern design. Perfect for everyday wear.", featured: true, badge: "Sale" },
+    { id: 6, title: "Sports Shoes", price: 1299, category: "Footwear", img: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=900&q=80", desc: "Lightweight sports shoes with excellent grip and comfort.", featured: true },
+    { id: 7, title: "Canvas Tote Bag", price: 199, category: "Accessories", img: "https://images.unsplash.com/photo-1495121605193-b116b5b09a13?auto=format&fit=crop&w=900&q=80", desc: "Durable and reusable canvas bag with spacious interior.", featured: true },
+    { id: 8, title: "Kids Denim Shorts", price: 349, category: "Kids", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80", desc: "Cool denim shorts for kids with adjustable waistband.", featured: true },
+    { id: 9, title: "Formal Shirt", price: 599, category: "Men", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=900&q=80", desc: "Premium formal shirt for office wear and special occasions.", featured: false },
+    { id: 10, title: "Summer Dress", price: 899, category: "Women", img: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?auto=format&fit=crop&w=900&q=80", desc: "Light and breezy summer dress with floral pattern.", featured: false },
+    { id: 11, title: "Running Shoes", price: 1499, category: "Footwear", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80", desc: "High-performance running shoes with cushioning technology.", featured: false },
+    { id: 12, title: "Winter Jacket", price: 1999, originalPrice: 2499, category: "Men", img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80", desc: "Warm winter jacket with waterproof exterior and soft lining.", featured: false, badge: "Hot" }
+  ];
+
+  // Categories Data
+  const CATEGORIES = [
+    { name: "All", count: PRODUCTS.length, active: true },
+    { name: "Men", count: PRODUCTS.filter(p => p.category === "Men").length },
+    { name: "Women", count: PRODUCTS.filter(p => p.category === "Women").length },
+    { name: "Kids", count: PRODUCTS.filter(p => p.category === "Kids").length },
+    { name: "Footwear", count: PRODUCTS.filter(p => p.category === "Footwear").length },
+    { name: "Accessories", count: PRODUCTS.filter(p => p.category === "Accessories").length }
+  ];
+
+  // App State
+  let cart = JSON.parse(localStorage.getItem('atoz_cart')) || [];
+  let activeCategory = 'All';
+  let currentSlide = 0;
+  let slideInterval;
+
+  // DOM Elements
+  const DOM = {
+    productsGrid: document.getElementById('productsGrid'),
+    categoriesList: document.getElementById('categoriesList'),
+    cartItems: document.getElementById('cartItems'),
+    cartCount: document.getElementById('cartCount'),
+    cartTotalCount: document.getElementById('cartTotalCount'),
+    cartTotal: document.getElementById('cartTotal'),
+    emptyCart: document.getElementById('emptyCart'),
+    cartDrawer: document.getElementById('cartDrawer'),
+    cartOverlay: document.getElementById('cartOverlay'),
+    searchInput: document.getElementById('searchInput'),
+    productModal: document.getElementById('productModal'),
+    aboutModal: document.getElementById('aboutModal'),
+    contactModal: document.getElementById('contactModal'),
+    policyModal: document.getElementById('policyModal'),
+    footerCategories: document.getElementById('footerCategories')
+  };
+
+  // Utility Functions
+  const formatPrice = (price) => `₹${price.toLocaleString('en-IN')}`;
+  const saveCartToStorage = () => localStorage.setItem('atoz_cart', JSON.stringify(cart));
+  const getCartItemCount = () => cart.reduce((total, item) => total + item.quantity, 0);
+  const getCartTotal = () => cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+  // Initialize the App
+  function initApp() {
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Update brand info
+    document.getElementById('upiText').textContent = BRAND.upiId;
+    document.getElementById('phoneText').textContent = BRAND.phone;
+    document.getElementById('emailText').href = `mailto:${BRAND.email}`;
+    document.getElementById('addressText').textContent = BRAND.address;
+    
+    // Render categories
+    renderCategories();
+    renderFooterCategories();
+    
+    // Render products
+    renderProducts();
+    
+    // Render cart
+    renderCart();
+    updateCartCount();
+    
+    // Initialize slider
+    initSlider();
+    
+    // Set up event listeners
+    setupEventListeners();
+  }
+
+  // Render Categories
+  function renderCategories() {
+    DOM.categoriesList.innerHTML = '';
+    
+    CATEGORIES.forEach(category => {
+      const categoryElement = document.createElement('div');
+      categoryElement.className = `category-card ${category.active ? 'active' : ''}`;
+      categoryElement.innerHTML = `
+        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=500&q=80" alt="${category.name}">
+        <div class="overlay">
+          <div>${category.name}</div>
+          <small>${category.count} items</small>
+        </div>
+      `;
+      
+      categoryElement.addEventListener('click', () => {
+        // Remove active class from all categories
+        document.querySelectorAll('.category-card').forEach(card => card.classList.remove('active'));
+        // Add active class to click
