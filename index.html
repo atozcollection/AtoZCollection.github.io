@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A To Z Collection — Fashion Store</title>
+  <meta name="description" content="A To Z Collection - Shoes, Hoodies, T-Shirts, Kids Wear. Order on WhatsApp or pay via UPI." />
+  <style>
+    :root{
+      --accent:#ec4899; /* pink */
+      --accent-dark:#be185d;
+      --muted:#666;
+      --card-bg:#fff;
+      --page-bg:#f7f7fb;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, Arial;background:var(--page-bg);color:#111}
+    .container{max-width:var(--maxw);margin:0 auto;padding:16px}
+    header{background:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(2,6,23,0.06);position:sticky;top:0;z-index:40}
+    .brand{font-weight:800;color:var(--accent);letter-spacing:0.6px}
+    .search{flex:1;margin:0 16px}
+    .search input{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6f0}
+    /* slider */
+    .hero{margin-top:12px;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+    .hero img{display:block;width:100%;height:260px;object-fit:cover}
+    /* categories */
+    .cats{display:flex;gap:8px;overflow:auto;margin-top:12px;padding-bottom:8px}
+    .cat{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #eee;white-space:nowrap;font-size:14px;cursor:pointer}
+    .cat.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    /* products grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:12px}
+    .card{background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.04);display:flex;flex-direction:column}
+    .card img{width:100%;height:190px;object-fit:cover}
+    .card .inner{padding:10px;flex:1;display:flex;flex-direction:column}
+    .title{font-weight:600;font-size:15px}
+    .price{color:var(--accent);font-weight:700;margin-top:6px}
+    .card .actions{margin-top:auto;display:flex;gap:8px}
+    .btn{display:inline-block;padding:8px 10px;border-radius:8px;border:none;cursor:pointer;text-align:center}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:#fff;border:1px solid #e6e6f0}
+    /* cart drawer */
+    .cart-button{position:fixed;right:16px;bottom:16px;background:var(--accent);color:#fff;border-radius:999px;padding:12px 14px;box-shadow:0 12px 30px rgba(2,6,23,0.12);z-index:60;border:none}
+    .drawer{position:fixed;right:0;top:0;height:100%;width:360px;background:#fff;box-shadow:-8px 0 30px rgba(2,6,23,0.08);transform:translateX(110%);transition:transform .25s ease;z-index:70;display:flex;flex-direction:column}
+    .drawer.open{transform:translateX(0)}
+    .drawer .head{padding:16px;border-bottom:1px solid #f2f2f7;display:flex;justify-content:space-between;align-items:center}
+    .drawer .list{padding:12px;overflow:auto;flex:1}
+    .drawer .foot{padding:12px;border-top:1px solid #f2f2f7}
+    .cart-item{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+    .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:8px}
+    .qty{display:inline-flex;align-items:center;border-radius:8px;border:1px solid #eee;overflow:hidden}
+    .qty button{padding:6px 8px;border:none;background:#fff;cursor:pointer}
+    .total{font-weight:800}
+    /* modal */
+    .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:80;padding:16px}
+    .modal{background:#fff;border-radius:12px;max-width:720px;width:100%;overflow:hidden}
+    .modal img{width:100%;height:320px;object-fit:cover}
+    .modal .body{padding:12px}
+    /* small screens */
+    @media (max-width:600px){.drawer{width:100%}.hero img{height:180px}.card img{height:150px}}
+    /* footer */
+    footer{margin-top:20px;background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04);text-align:center;color:var(--muted);font-size:14px}
+    /* contact */
+    .contact{display:grid;grid-template-columns:1fr 300px;gap:12px;margin-top:12px}
+    @media (max-width:900px){.contact{grid-template-columns:1fr}}
+    .policy-links{display:flex;gap:8px;justify-content:center;margin-top:10px}
+    a{color:inherit;text-decoration:none}
+    /* tiny helper */
+    .muted{color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+
+<!-- Simple client-side store for A To Z Collection -->
+<script>
+  // Brand settings (replace if needed)
+  const BRAND = {
+    name: "A To Z Collection",
+    whatsappNumber: "+918887728146", // with country code
+    whatsappShort: "918887728146", // number without plus for wa.me
+    upiId: "your-upi@bank", // replace with your UPI id
+    email: "your-email@example.com",
+    address: "Rajendra Nagar, Bansi, Siddhartha Nagar"
+  };
+</script>
+
+<header>
+  <div class="container" style="display:flex;align-items:center;gap:12px">
+    <div class="brand" onclick="location.reload()" style="cursor:pointer">A To Z Collection</div>
+    <div class="search"><input id="searchInput" placeholder="Search products, brands and more" /></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn btn-ghost" onclick="openContact()">Contact</button>
+      <button class="btn" title="Open Cart" id="openCart" onclick="toggleCart()">Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Hero / Slider -->
+  <section class="hero" id="slider">
+    <img id="slideImg" src="https://via.placeholder.com/1200x360?text=Mega+Sale+-+Up+to+50%25+Off" alt="banner" />
+  </section>
+
+  <!-- categories -->
+  <div class="cats" id="catList" aria-hidden="false"></div>
+
+  <!-- products -->
+  <div class="grid" id="productsGrid"></div>
+
+  <!-- contact & checkout area -->
+  <div class="contact">
+    <div style="background:#fff;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)">
+      <h3 style="margin:0 0 8px">Checkout</h3>
+      <div id="checkoutInfo" class="muted">Add items to cart and then choose Order on WhatsApp or pay via UPI.</div>
+      <div style="margin-top:10px;display:flex;gap:8px">
+        <button class="btn btn-primary" onclick="orderWhatsApp()">Order on WhatsApp</button>
+        <button class="btn btn-ghost" onclick="copyUPI()">Copy UPI ID</button>
+      </div>
+      <div style="margin-top:10px" class="muted">UPI: <span id="upiText">your-upi@bank</span></div>
+      <div style="margin-top:10px" class="muted">Or <a href="#" onclick="openContact()">Contact us</a> to place order.</div>
+    </div>
+
+    <div style="background:#fff;padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)">
+      <h3 style="margin:0 0 8px">Contact</h3>
+      <p class="muted">Phone: <b id="phoneText">8887728146</b></p>
+      <p class="muted">Email: <a href="mailto:your-email@example.com" id="emailText">your-email@example.com</a></p>
+      <p class="muted">Address: <span id="addressText">Rajendra Nagar, Bansi, Siddhartha Nagar</span></p>
+    </div>
+  </div>
+
+  <!-- policies -->
+  <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+    <a class="cat" href="#">Privacy Policy</a>
+    <a class="cat" href="#">Return Policy</a>
+    <a class="cat" href="#">Terms & Conditions</a>
+  </div>
+
+</main>
+
+<!-- Cart Drawer -->
+<div id="cartDrawer" class="drawer" role="dialog" aria-hidden="true">
+  <div class="head">
+    <div style="font-weight:800">Your Cart (<span id="cartTotalCount">0</span>)</div>
+    <button onclick="toggleCart()">Close</button>
+  </div>
+  <div class="list" id="cartList"></div>
+  <div class="foot">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">Total</div>
+      <div class="total" id="cartTotal">₹0</div>
+    </div>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn btn-primary" onclick="orderWhatsApp()">Order on WhatsApp</button>
+      <button class="btn btn-ghost" onclick="copyUPI()">Pay via UPI</button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Modal (hidden) -->
+<div id="modalRoot" style="display:none"></div>
+
+<footer class="container">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>
+      <div style="font-weight:800">A To Z Collection</div>
+      <div class="muted">Made with ❤️ • Contact: <b>8887728146</b></div>
+    </div>
+    <div class="muted">© <span id="year"></span> A To Z Collection</div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating -->
+<button class="cart-button" title="Order on WhatsApp" onclick="orderWhatsApp()">📱 Order</button>
+
+<script>
+/* ===========================
+   Sample product data (edit images & details)
+   =========================== */
+const SAMPLE_PRODUCTS = [
+  { id:1, title:"Men Slim Fit Jeans", price:899, category:"Men", img:"https://images.unsplash.com/photo-1520975698519-8a3a1b7a8a2b?auto=format&fit=crop&w=800&q=60", desc:"Comfortable slim fit jeans, multiple sizes."},
+  { id:2, title:"Women Floral Kurti", price:749, category:"Women", img:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=60", desc:"Elegant floral kurti for daily wear."},
+  { id:3, title:"Kids Panda Outfit", price:499, category:"Kids", img:"https://images.unsplash.com/photo-1542293787938-c9e299b8802d?auto=format&fit=crop&w=800&q=60", desc:"Soft fabric for 9 months to 5 years."},
+  { id:4, title:"Classic Black Hoodie", price:999, category:"Men", img:"https://images.unsplash.com/photo-1602810315981-7c13764d6b4e?auto=format&fit=crop&w=800&q=60", desc:"Warm & cozy hoodie."},
+  { id:5, title:"Women Casual T-Shirt", price:299, category:"Women", img:"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=60", desc:"Breathable cotton t-shirt."},
+  { id:6, title:"Sports Shoes", price:1299, category:"Footwear", img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=60", desc:"Lightweight sports shoes."},
+  { id:7, title:"Canvas Tote Bag", price:199, category:"Accessories", img:"https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=800&q=60", desc:"Reusable canvas bag."},
+  { id:8, title:"Kids Denim Shorts", price:349, category:"Kids", img:"https://images.unsplash.com/photo-1520975698519-8a3a1b7a8a2b?auto=format&fit=crop&w=800&q=60", desc:"Cool denim shorts for kids."}
+];
+
+/* ===========================
+   App state (cart saved in localStorage)
+   =========================== */
+let CART = JSON.parse(localStorage.getItem('atoz_cart_v1')||'[]');
+const state = { products:SAMPLE_PRODUCTS.slice(), activeCat:'All', slideIndex:0 };
+
+/* ==============
+   Utilities
+   ============== */
+const el = id=> document.getElementById(id);
+const saveCart = ()=> { localStorage.setItem('atoz_cart_v1', JSON.stringify(CART)); renderCart(); updateCartCount(); };
+const formatR = v => '₹' + Number(v).toLocaleString('en-IN');
+
+/* ==============
+   Render functions
+   ============== */
+function renderCategories(){
+  const cats = Array.from(new Set(state.products.map(p=>p.category)));
+  const wrap = el('catList');
+  wrap.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className='cat' + (state.activeCat==='All'?' active':'');
+  allBtn.textContent='All';
+  allBtn.onclick = ()=>{ state.activeCat='All'; renderProducts(); renderCategories(); };
+  wrap.appendChild(allBtn);
+  cats.forEach(c=>{
+    const b = document.createElement('button');
+    b.className='cat' + (state.activeCat===c?' active':'');
+    b.textContent = c;
+    b.onclick = ()=>{ state.activeCat=c; renderProducts(); renderCategories(); };
+    wrap.appendChild(b);
+  });
+}
+
+function renderProducts(){
+  const grid = el('productsGrid');
+  const q = (el('searchInput') && el('searchInput').value || '').toLowerCase().trim();
+  const filtered = state.products.filter(p=>{
+    return (state.activeCat==='All' || p.category===state.activeCat) && (p.title.toLowerCase().includes(q) || p.desc && p.desc.toLowerCase().includes(q));
+  });
+  grid.innerHTML = '';
+  filtered.forEach(p=>{
+    const card = document.createElement('div'); card.className='card';
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.title}" />
+      <div class="inner">
+        <div class="title">${p.title}</div>
+        <div class="muted">${p.category}</div>
+        <div class="price">${formatR(p.price)}</div>
+        <div class="actions">
+          <button class="btn btn-ghost" onclick="viewProduct(${p.id})">View</button>
+          <button class="btn btn-primary" onclick="addToCartById(${p.id})">Add</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* Cart UI */
+function renderCart(){
+  el('cartList').innerHTML = '';
+  let tot = 0; let count = 0;
+  CART.forEach(item=>{
+    tot += item.price * item.qty; count += item.qty;
+    const node = document.createElement('div'); node.className='cart-item';
+    node.innerHTML = `
+      <img src="${item.img}" />
+      <div style="flex:1">
+        <div style="font-weight:700">${item.title}</div>
+        <div class="muted">${formatR(item.price)}</div>
+        <div style="margin-top:6px">
+          <span class="qty">
+            <button onclick="changeQty(${item.id}, ${Math.max(1, item.qty-1)})">-</button>
+            <div style="padding:6px 12px">${item.qty}</div>
+            <button onclick="changeQty(${item.id}, ${item.qty+1})">+</button>
+          </span>
+          <button style="margin-left:8px;color:#b91c1c;border:none;background:none;cursor:pointer" onclick="removeItem(${item.id})">Remove</button>
+        </div>
+      </div>
+      <div style="margin-left:8px;font-weight:700">${formatR(item.price*item.qty)}</div>
+    `;
+    el('cartList').appendChild(node);
+  });
+  el('cartTotal').textContent = formatR(tot);
+  el('cartTotalCount').textContent = count;
+  el('cartCount').textContent = count;
+  saveCartLocalOnly(); // ensure localStorage updated
+}
+
+function updateCartCount(){ el('cartCount').textContent = CART.reduce((s,i)=>s+i.qty,0); }
+
+/* Cart actions */
+function addToCartById(id){
+  const p = state.products.find(x=>x.id===id);
+  if(!p) return;
+  const found = CART.find(x=>x.id===id);
+  if(found) found.qty++;
+  else CART.unshift({...p, qty:1});
+  saveCart();
+  openCartPanel();
+}
+function addToCart(p){
+  addToCartById(p.id);
+}
+function changeQty(id, qty){
+  CART = CART.map(i=> i.id===id? {...i, qty}: i);
+  saveCart();
+}
+function removeItem(id){
+  CART = CART.filter(i=> i.id!==id);
+  saveCart();
+}
+function saveCartLocalOnly(){ localStorage.setItem('atoz_cart_v1', JSON.stringify(CART)); }
+
+/* Cart drawer toggle */
+function toggleCart(){ const d=el('cartDrawer'); d.classList.toggle('open'); d.setAttribute('aria-hidden', !d.classList.contains('open')); }
+function openCartPanel(){ const d=el('cartDrawer'); d.classList.add('open'); d.setAttribute('aria-hidden','false'); }
+
+/* Product modal */
+function viewProduct(id){
+  const p = state.products.find(x=>x.id===id);
+  if(!p) return;
+  const root = el('modalRoot');
+  root.style.display='block';
+  root.innerHTML = `
+    <div class="modal-bg" onclick="closeModal(event)">
+      <div class="modal" onclick="event.stopPropagation()">
+        <img src="${p.img}" />
+        <div class="body">
+          <h2 style="margin:0">${p.title}</h2>
+          <div style="color:var(--accent);font-weight:800;margin-top:6px">${formatR(p.price)}</div>
+          <p class="muted" style="margin-top:8px">${p.desc||''}</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button class="btn btn-primary" onclick="addToCartById(${p.id}); closeModal();">Add to Cart</button>
+            <button class="btn btn-ghost" onclick="orderThisWhats(${p.id})">Order on WhatsApp</button>
+            <button class="btn" onclick="closeModal()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+function closeModal(e){
+  const root = el('modalRoot'); root.style.display='none'; root.innerHTML='';
+}
+
+/* Order on WhatsApp */
+function orderWhatsApp(){
+  if(CART.length===0){ alert('Cart is empty — add products before ordering.'); return; }
+  const lines = CART.map(i=> `${i.title} x${i.qty} — ₹${i.price*i.qty}`).join('%0A');
+  const total = CART.reduce((s,i)=>s+i.price*i.qty,0);
+  const msg = encodeURIComponent(`Hello, I want to place an order from A To Z Collection.%0A%0A${CART.map(i=> i.title+' x'+i.qty+' — ₹'+(i.price*i.qty)).join('%0A')}%0A%0ATotal: ₹${total}%0A%0AName:%0AAddress:%0APhone:`)
+  const url = `https://wa.me/${BRAND.whatsappShort}?text=${msg}`;
+  window.open(url,'_blank');
+}
+
+/* Order single product from modal */
+function orderThisWhats(id){
+  const p = state.products.find(x=>x.id===id);
+  if(!p) return;
+  const msg = encodeURIComponent(`Hello, I want to buy ${p.title} (₹${p.price}).%0AQuantity: 1%0AName:%0AAddress:%0APhone:`);
+  const url = `https://wa.me/${BRAND.whatsappShort}?text=${msg}`;
+  window.open(url,'_blank');
+}
+
+/* Copy UPI */
+function copyUPI(){ navigator.clipboard && navigator.clipboard.writeText(BRAND.upiId).then(()=> alert('UPI ID copied: ' + BRAND.upiId)); }
+
+/* Contact opens mailto */
+function openContact(){
+  const mailto = `mailto:${BRAND.email}?subject=${encodeURIComponent('Order/Query - A To Z Collection')}&body=${encodeURIComponent('Hello%0A%0AI have a query...')}`;
+  window.location.href = mailto;
+}
+
+/* slider auto */
+function initSlider(){
+  const slides = [
+    'https://via.placeholder.com/1200x360?text=Mega+Sale+-+Up+to+50%25+Off',
+    'https://via.placeholder.com/1200x360?text=New+Arrivals',
+    'https://via.placeholder.com/1200x360?text=Buy+2+Get+1+Free'
+  ];
+  setInterval(()=>{ state.slideIndex = (state.slideIndex+1)%slides.length; el('slideImg').src = slides[state.slideIndex]; }, 3500);
+}
+
+/* Search handling */
+document.addEventListener('input', e=>{
+  if(e.target && e.target.id==='searchInput') renderProducts();
+});
+
+/* Init app */
+function initApp(){
+  // brand text
+  document.getElementById('year').textContent = new Date().getFullYear();
+  el('upiText').textContent = BRAND.upiId;
+  el('phoneText').textContent = BRAND.whatsappShort;
+  el('emailText').href = 'mailto:' + BRAND.email;
+  el('emailText').textContent = BRAND.email;
+  el('addressText').textContent = BRAND.address;
+
+  // load cart from localStorage
+  CART = JSON.parse(localStorage.getItem('atoz_cart_v1')||'[]');
+  renderCategories();
+  renderProducts();
+  renderCart();
+  initSlider();
+}
+
+/* Helpers for initial demo */
+window.addToCartById = addToCartById;
+window.addToCart = addToCart;
+window.toggleCart = toggleCart;
+window.changeQty = function(id, qty){ CART = CART.map(i=> i.id===id? {...i, qty}: i ); saveCart(); }
+window.removeItem = removeItem;
+window.viewProduct = viewProduct;
+window.orderWhatsApp = orderWhatsApp;
+window.orderThisWhats = orderThisWhats;
+window.copyUPI = copyUPI;
+window.openContact = openContact;
+window.closeModal = closeModal;
+
+initApp();
+</script>
+
+</body>
+</html>
