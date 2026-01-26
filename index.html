@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Updates - Firmware Downloads for All Phones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: #5c6bc0;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #5c6bc0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #5c6bc0;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            max-width: 700px;
+            margin: 30px auto 0;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            padding: 5px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-box button {
+            background: #5c6bc0;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: background 0.3s;
+        }
+        
+        .search-box button:hover {
+            background: #3949ab;
+        }
+        
+        /* Brands Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 32px;
+            color: #1a237e;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: #5c6bc0;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-icon {
+            width: 70px;
+            height: 70px;
+            background: #f5f7fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 32px;
+            color: #1a237e;
+        }
+        
+        .brand-card h3 {
+            font-size: 18px;
+            color: #333;
+        }
+        
+        /* Firmware List */
+        .firmware-list {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 50px;
+        }
+        
+        .firmware-header {
+            background: #f5f7fa;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .firmware-header h3 {
+            color: #1a237e;
+            font-size: 22px;
+        }
+        
+        .firmware-count {
+            background: #5c6bc0;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .firmware-item {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .firmware-item:last-child {
+            border-bottom: none;
+        }
+        
+        .device-info h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .device-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .firmware-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #5c6bc0;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #3949ab;
+        }
+        
+        .btn-secondary {
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: #e8eaf6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: #5c6bc0;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #5c6bc0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #5c6bc0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #283593;
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .brands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1a237e;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .search-box {
+                flex-direction: column;
+                background: transparent;
+                gap: 15px;
+            }
+            
+            .search-box input, .search-box button {
+                width: 100%;
+                border-radius: 10px;
+            }
+            
+            .firmware-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .firmware-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 26px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .brands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 15px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                <h1>Mobile<span>Updates</span>.info</h1>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#brands">Brands</a></li>
+                    <li><a href="#firmwares">Firmwares</a></li>
+                    <li><a href="#guide">Guide</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Download Latest Firmware for Your Mobile Phone</h2>
+            <p>Find and download official firmware for Samsung, Apple, Xiaomi, OnePlus, Google, and many other brands. All firmware files are verified and safe to use.</p>
+            
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search for your device model (e.g., Samsung Galaxy S23, iPhone 14 Pro)">
+                <button id="search-btn">Search Firmware</button>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 14px;"><i class="fas fa-shield-alt"></i> All firmware files are scanned for malware and verified for authenticity</p>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands">
+        <div class="container">
+            <h2 class="section-title">Popular Brands</h2>
+            <div class="brands-grid">
+                <!-- Brand cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Firmware Section -->
+    <section id="firmwares">
+        <div class="container">
+            <h2 class="section-title">Recently Added Firmwares</h2>
+            <div class="firmware-list">
+                <div class="firmware-header">
+                    <h3>Latest Updates</h3>
+                    <div class="firmware-count" id="firmware-count">12 New</div>
+                </div>
+                <!-- Firmware items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose MobileUpdates.info?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Fast Downloads</h3>
+                    <p>High-speed download servers with no speed limits. Download firmware files quickly without any restrictions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Verified & Safe</h3>
+                    <p>All firmware files are scanned for malware and verified for authenticity. We provide only official firmware.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Wide Collection</h3>
+                    <p>Firmware for over 10,000 devices from 50+ brands. Regular updates with the latest releases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MobileUpdates.info</h3>
+                    <p>Your trusted source for mobile firmware downloads since 2020. We provide official firmware for all major mobile brands.</p>
+                    <p style="margin-top: 15px;"><i class="fas fa-globe"></i> www.mobileupdates.info</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#brands">Brands</a></li>
+                        <li><a href="#firmwares">Firmwares</a></li>
+                        <li><a href="#guide">Flashing Guide</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Brands</h3>
+                    <ul class="footer-links">
+                        <li><a href="#samsung">Samsung</a></li>
+                        <li><a href="#apple">Apple</a></li>
+                        <li><a href="#xiaomi">Xiaomi</a></li>
+                        <li><a href="#oneplus">OnePlus</a></li>
+                        <li><a href="#google">Google Pixel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> support@mobileupdates.info</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MobileUpdates.info. All rights reserved. This site is for educational purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Brand data
+        const brands = [
+            { name: "Samsung", icon: "fab fa-android", color: "#1428a0", count: 1250 },
+            { name: "Apple", icon: "fab fa-apple", color: "#a2aaad", count: 300 },
+            { name: "Xiaomi", icon: "fas fa-bolt", color: "#ff6900", count: 980 },
+            { name: "OnePlus", icon: "fas fa-plus", color: "#eb0029", count: 150 },
+            { name: "Google", icon: "fab fa-google", color: "#4285f4", count: 120 },
+            { name: "Motorola", icon: "fas fa-m", color: "#5c92d8", count: 350 },
+            { name: "Nokia", icon: "fas fa-n", color: "#124191", count: 280 },
+            { name: "Realme", icon: "fas fa-r", color: "#ff5a22", count: 200 },
+            { name: "Oppo", icon: "fas fa-o", color: "#0088ff", count: 320 },
+            { name: "Vivo", icon: "fas fa-v", color: "#415fff", count: 270 },
+            { name: "Sony", icon: "fas fa-play", color: "#0066cc", count: 180 },
+            { name: "LG", icon: "fas fa-l", color: "#a50034", count: 220 }
+        ];
+        
+        // Firmware data
+        const firmwares = [
+            { device: "Samsung Galaxy S23 Ultra", brand: "Samsung", version: "Android 13", region: "Global", date: "2023-08-15", size: "4.2 GB" },
+            { device: "iPhone 14 Pro Max", brand: "Apple", version: "iOS 16.5", region: "Global", date: "2023-08-10", size: "5.1 GB" },
+            { device: "Xiaomi 13 Pro", brand: "Xiaomi", version: "MIUI 14", region: "Global", date: "2023-08-12", size: "3.8 GB" },
+            { device: "Google Pixel 7 Pro", brand: "Google", version: "Android 13", region: "Global", date: "2023-08-08", size: "2.9 GB" },
+            { device: "OnePlus 11", brand: "OnePlus", version: "OxygenOS 13", region: "India", date: "2023-08-05", size: "3.5 GB" },
+            { device: "Samsung Galaxy A54", brand: "Samsung", version: "Android 13", region: "Europe", date: "2023-08-03", size: "3.2 GB" },
+            { device: "Motorola Edge 40", brand: "Motorola", version: "Android 13", region: "Global", date: "2023-07-30", size: "2.8 GB" },
+            { device: "Realme GT 3", brand: "Realme", version: "Realme UI 4.0", region: "China", date: "2023-07-28", size: "3.1 GB" }
+        ];
+        
+        // Populate brands grid
+        const brandsGrid = document.querySelector('.brands-grid');
+        brands.forEach(brand => {
+            const brandCard = document.createElement('div');
+            brandCard.className = 'brand-card';
+            brandCard.innerHTML = `
+                <div class="brand-icon" style="background-color: ${brand.color}20; color: ${brand.color};">
+                    <i class="${brand.icon}"></i>
+                </div>
+                <h3>${brand.name}</h3>
+                <p style="font-size: 14px; color: #666; margin-top: 5px;">${brand.count} Firmwares</p>
+            `;
+            brandsGrid.appendChild(brandCard);
+            
+            // Add click event to brand cards
+            brandCard.addEventListener('click', () => {
+                document.getElementById('search-input').value = brand.name;
+                document.getElementById('search-btn').click();
+            });
+        });
+        
+        // Populate firmware list
+        const firmwareList = document.querySelector('.firmware-list');
+        firmwares.forEach(firmware => {
+            const firmwareItem = document.createElement('div');
+            firmwareItem.className = 'firmware-item';
+            firmwareItem.innerHTML = `
+                <div class="device-info">
+                    <h4>${firmware.device}</h4>
+                    <p><strong>Brand:</strong> ${firmware.brand} | <strong>Version:</strong> ${firmware.version} | <strong>Region:</strong> ${firmware.region} | <strong>Date:</strong> ${firmware.date} | <strong>Size:</strong> ${firmware.size}</p>
+                </div>
+                <div class="firmware-actions">
+                    <button class="btn btn-primary">Download</button>
+                    <button class="btn btn-secondary">Details</button>
+                </div>
+            `;
+            firmwareList.appendChild(firmwareItem);
+        });
+        
+        // Update firmware count
+        document.getElementById('firmware-count').textContent = `${firmwares.length} Available`;
+        
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        
+        searchBtn.addEventListener('click', () => {
+            const query = searchInput.value.trim();
+            if (query) {
+                // Show loading state
+                const originalText = searchBtn.innerHTML;
+                searchBtn.innerHTML = '<div class="loading"></div>';
+                
+                // Simulate search
+                setTimeout(() => {
+                    searchBtn.innerHTML = originalText;
+                    alert(`Searching for firmware for: "${query}". This is a demo - in a real site, this would show results.`);
+                    
+                    // Highlight the firmware section
+                    document.getElementById('firmwares').scrollIntoView({ behavior: 'smooth' });
+                }, 1000);
+            } else {
+                alert('Please enter a device name or brand to search.');
+            }
+        });
+        
+        // Allow pressing Enter to search
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
