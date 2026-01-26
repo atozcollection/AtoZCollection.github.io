@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Updates - Complete Firmware Download Links Directory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: #5c6bc0;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #5c6bc0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #5c6bc0;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #5c6bc0;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .sidebar {
+            flex: 0 0 250px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar h3 {
+            color: #1a237e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .brand-list {
+            list-style: none;
+        }
+        
+        .brand-list li {
+            margin-bottom: 12px;
+        }
+        
+        .brand-list a {
+            color: #555;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .brand-list a:hover, .brand-list a.active {
+            background: #f0f3ff;
+            color: #1a237e;
+            font-weight: 600;
+        }
+        
+        .brand-list i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .content {
+            flex: 1;
+        }
+        
+        .section-title {
+            color: #1a237e;
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e8eaf6;
+        }
+        
+        /* Websites Grid */
+        .websites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .website-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .website-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .website-header {
+            background: #f5f7fa;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .website-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #5c6bc0 0%, #3949ab 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 22px;
+        }
+        
+        .website-header h3 {
+            color: #1a237e;
+            font-size: 20px;
+            flex: 1;
+        }
+        
+        .website-type {
+            background: #e8eaf6;
+            color: #3949ab;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .website-body {
+            padding: 20px;
+        }
+        
+        .website-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        
+        .website-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border: none;
+            font-size: 14px;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: #5c6bc0;
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background: #3949ab;
+        }
+        
+        .btn-secondary {
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: #e8eaf6;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 5px solid #5c6bc0;
+        }
+        
+        .info-box h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box li {
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #5c6bc0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #5c6bc0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #283593;
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                flex: none;
+                width: 100%;
+            }
+            
+            .websites-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #1a237e;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .websites-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .website-links {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 26px;
+            }
+            
+            .stats {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                padding: 10px 15px;
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .stat-number {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+        
+        /* Active Brand Highlight */
+        .active-brand {
+            background: #e8eaf6 !important;
+            color: #1a237e !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Brand Header */
+        .brand-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        .brand-logo {
+            width: 70px;
+            height: 70px;
+            background: #f5f7fa;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 32px;
+            color: #1a237e;
+        }
+        
+        .brand-info h2 {
+            color: #1a237e;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .brand-info p {
+            color: #666;
+        }
+        
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #5c6bc0;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            z-index: 100;
+            border: none;
+        }
+        
+        #back-to-top:hover {
+            background: #3949ab;
+            transform: translateY(-5px);
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .quick-link {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quick-link:hover {
+            background: #5c6bc0;
+            color: white;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                <h1>Mobile<span>Updates</span>.info</h1>
+            </div>
+            
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#brands"><i class="fas fa-mobile"></i> Brands</a></li>
+                    <li><a href="#websites"><i class="fas fa-globe"></i> Websites</a></li>
+                    <li><a href="#guide"><i class="fas fa-book"></i> Guide</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Complete Directory of Mobile Firmware Download Websites</h2>
+            <p>Find direct links to official and trusted firmware download sites for all mobile brands. Updated daily with verified sources.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Mobile Brands</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Firmware Websites</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Firmware Files</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Verified Links</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Sidebar with Brands -->
+        <div class="sidebar">
+            <h3><i class="fas fa-list"></i> Browse by Brand</h3>
+            <ul class="brand-list" id="brand-list">
+                <!-- Brands will be populated by JavaScript -->
+            </ul>
+            
+            <h3 style="margin-top: 30px;"><i class="fas fa-link"></i> Quick Links</h3>
+            <div class="quick-links">
+                <a href="#official" class="quick-link"><i class="fas fa-check-circle"></i> Official Sites</a>
+                <a href="#multi-brand" class="quick-link"><i class="fas fa-layer-group"></i> Multi-Brand</a>
+                <a href="#android" class="quick-link"><i class="fab fa-android"></i> Android</a>
+                <a href="#ios" class="quick-link"><i class="fab fa-apple"></i> iOS</a>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="content">
+            <!-- Brand Header (Dynamic) -->
+            <div class="brand-header" id="brand-header">
+                <div class="brand-logo">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="brand-info">
+                    <h2>All Firmware Websites</h2>
+                    <p>Complete directory of firmware download sites for all mobile brands</p>
+                </div>
+            </div>
+            
+            <!-- Info Box -->
+            <div class="info-box">
+                <h3><i class="fas fa-info-circle"></i> Important Information</h3>
+                <p>This directory contains links to both official manufacturer websites and trusted third-party firmware repositories. Always consider:</p>
+                <ul>
+                    <li>Download firmware only from trusted sources</li>
+                    <li>Official websites are always the safest option</li>
+                    <li>Always verify firmware compatibility with your device</li>
+                    <li>Backup your data before flashing any firmware</li>
+                    <li>Flashing firmware incorrectly can brick your device</li>
+                </ul>
+                <p><strong>Note:</strong> We regularly verify all links, but websites may change or go offline.</p>
+            </div>
+            
+            <!-- Websites Grid -->
+            <h3 class="section-title" id="websites">All Firmware Download Websites</h3>
+            <div class="websites-grid" id="websites-grid">
+                <!-- Websites will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MobileUpdates.info</h3>
+                    <p>Your complete directory for mobile firmware download websites. We verify and update links regularly to ensure you have access to the latest firmware for your device.</p>
+                    <p style="margin-top: 15px;"><i class="fas fa-globe"></i> www.mobileupdates.info</p>
+                    <p><i class="fas fa-envelope"></i> contact@mobileupdates.info</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#samsung">Samsung Firmware</a></li>
+                        <li><a href="#xiaomi">Xiaomi Firmware</a></li>
+                        <li><a href="#apple">Apple iOS</a></li>
+                        <li><a href="#oneplus">OnePlus Firmware</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Sites</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://samfw.com" target="_blank">SamFW - Samsung</a></li>
+                        <li><a href="https://xiaomifirmwareupdater.com" target="_blank">Xiaomi Firmware</a></li>
+                        <li><a href="https://ipsw.me" target="_blank">IPSW Downloads</a></li>
+                        <li><a href="https://oxygenupdater.com" target="_blank">Oxygen Updater</a></li>
+                        <li><a href="https://firmware.mobi" target="_blank">Firmware.mobi</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#disclaimer">Disclaimer</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Use</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#dmca">DMCA</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MobileUpdates.info. All rights reserved. This site provides links to external websites. We are not responsible for the content of external sites.</p>
+                <p style="margin-top: 10px;">All brand names and logos are trademarks of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            menuToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Brand data
+        const brands = [
+            { id: "samsung", name: "Samsung", icon: "fab fa-android", color: "#1428a0" },
+            { id: "apple", name: "Apple", icon: "fab fa-apple", color: "#a2aaad" },
+            { id: "xiaomi", name: "Xiaomi", icon: "fas fa-bolt", color: "#ff6900" },
+            { id: "oneplus", name: "OnePlus", icon: "fas fa-plus", color: "#eb0029" },
+            { id: "google", name: "Google", icon: "fab fa-google", color: "#4285f4" },
+            { id: "motorola", name: "Motorola", icon: "fas fa-m", color: "#5c92d8" },
+            { id: "nokia", name: "Nokia", icon: "fas fa-n", color: "#124191" },
+            { id: "realme", name: "Realme", icon: "fas fa-r", color: "#ff5a22" },
+            { id: "oppo", name: "Oppo", icon: "fas fa-o", color: "#0088ff" },
+            { id: "vivo", name: "Vivo", icon: "fas fa-v", color: "#415fff" },
+            { id: "sony", name: "Sony", icon: "fas fa-play", color: "#0066cc" },
+            { id: "lg", name: "LG", icon: "fas fa-l", color: "#a50034" },
+            { id: "huawei", name: "Huawei", icon: "fas fa-h", color: "#ff0000" },
+            { id: "asus", name: "Asus", icon: "fas fa-a", color: "#000000" },
+            { id: "lenovo", name: "Lenovo", icon: "fas fa-laptop", color: "#e2231a" }
+        ];
+        
+        // Firmware websites data - REAL WEBSITES
+        const firmwareWebsites = [
+            // Samsung
+            {
+                name: "SamFW",
+                url: "https://samfw.com",
+                description: "Complete Samsung firmware download site with tools for downloading, decrypting and flashing firmware.",
+                brand: ["samsung"],
+                type: "Third-party",
+                icon: "fas fa-download"
+            },
+            {
+                name: "SamMobile",
+                url: "https://www.sammobile.com",
+                description: "Official Samsung firmware archive with the largest collection of Samsung firmware files.",
+                brand: ["samsung"],
+                type: "Official",
+                icon: "fas fa-mobile-alt"
+            },
+            {
+                name: "SamFrew",
+                url: "https://samfrew.com",
+                description: "Free Samsung firmware downloads for all models and regions. No registration required.",
+                brand: ["samsung"],
+                type: "Third-party",
+                icon: "fas fa-cloud-download-alt"
+            },
+            {
+                name: "Samsung Firmware Science",
+                url: "https://samsung-firmware.org",
+                description: "Scientific approach to Samsung firmware with detailed analysis and download options.",
+                brand: ["samsung"],
+                type: "Community",
+                icon: "fas fa-flask"
+            },
+            
+            // Apple
+            {
+                name: "IPSW Downloads",
+                url: "https://ipsw.me",
+                description: "Complete archive of iPhone, iPad, iPod, Apple TV and Apple Watch firmware (IPSW files).",
+                brand: ["apple"],
+                type: "Community",
+                icon: "fab fa-apple"
+            },
+            {
+                name: "Apple Developer Downloads",
+                url: "https://developer.apple.com/download",
+                description: "Official Apple developer portal for iOS, iPadOS, macOS, and other Apple software.",
+                brand: ["apple"],
+                type: "Official",
+                icon: "fas fa-code"
+            },
+            {
+                name: "Betaprofiles",
+                url: "https://betaprofiles.com",
+                description: "iOS beta profiles and firmware downloads for testing pre-release Apple software.",
+                brand: ["apple"],
+                type: "Beta",
+                icon: "fas fa-vial"
+            },
+            
+            // Xiaomi
+            {
+                name: "Xiaomi Firmware Updater",
+                url: "https://xiaomifirmwareupdater.com",
+                description: "Official MIUI firmware downloads for all Xiaomi, Redmi and POCO devices worldwide.",
+                brand: ["xiaomi"],
+                type: "Official",
+                icon: "fas fa-sync-alt"
+            },
+            {
+                name: "XiaomiROM",
+                url: "https://xiaomirom.com",
+                description: "Complete Xiaomi ROM collection including MIUI stable, beta, and custom ROMs.",
+                brand: ["xiaomi"],
+                type: "Community",
+                icon: "fas fa-archive"
+            },
+            {
+                name: "MIUI Downloads",
+                url: "https://miui.download",
+                description: "Direct MIUI firmware downloads with fast servers and no speed limits.",
+                brand: ["xiaomi"],
+                type: "Third-party",
+                icon: "fas fa-download"
+            },
+            
+            // OnePlus
+            {
+                name: "Oxygen Updater",
+                url: "https://oxygenupdater.com",
+                description: "Official app and website for downloading OxygenOS updates for OnePlus devices.",
+                brand: ["oneplus"],
+                type: "Official",
+                icon: "fas fa-rocket"
+            },
+            {
+                name: "OnePlus Community Downloads",
+                url: "https://community.oneplus.com",
+                description: "Official OnePlus community forum with firmware downloads and support.",
+                brand: ["oneplus"],
+                type: "Official",
+                icon: "fas fa-users"
+            },
+            
+            // Google
+            {
+                name: "Google Pixel Factory Images",
+                url: "https://developers.google.com/android/images",
+                description: "Official Google factory images for Pixel devices for flashing and restoration.",
+                brand: ["google"],
+                type: "Official",
+                icon: "fab fa-google"
+            },
+            {
+                name: "Google Pixel OTA Images",
+                url: "https://developers.google.com/android/ota",
+                description: "Official OTA update images for Google Pixel devices for sideloading updates.",
+                brand: ["google"],
+                type: "Official",
+                icon: "fas fa-wifi"
+            },
+            
+            // Multi-Brand Websites
+            {
+                name: "Firmware.mobi",
+                url: "https://firmware.mobi",
+                description: "Massive firmware archive for hundreds of device models from multiple manufacturers.",
+                brand: ["multi"],
+                type: "Archive",
+                icon: "fas fa-database"
+            },
+            {
+                name: "GetDroidTips Firmware",
+                url: "https://firmwarefile.com",
+                description: "Firmware downloads for Samsung, Xiaomi, Realme, Oppo, Vivo and many other brands.",
+                brand: ["multi"],
+                type: "Third-party",
+                icon: "fab fa-android"
+            },
+            {
+                name: "GSM Firmware",
+                url: "https://gsm-firmware.com",
+                description: "Firmware for mobile phones, tablets, and IoT devices from all major manufacturers.",
+                brand: ["multi"],
+                type: "Archive",
+                icon: "fas fa-signal"
+            },
+            {
+                name: "NeedROM",
+                url: "https://needrom.com",
+                description: "Large collection of custom ROMs, stock firmware, and tools for Android devices.",
+                brand: ["multi"],
+                type: "Community",
+                icon: "fas fa-microchip"
+            },
+            {
+                name: "Android File Host",
+                url: "https://androidfilehost.com",
+                description: "Massive file hosting service for Android ROMs, kernels, recoveries, and firmware.",
+                brand: ["multi"],
+                type: "Hosting",
+                icon: "fas fa-server"
+            },
+            {
+                name: "XDA Developers",
+                url: "https://forum.xda-developers.com",
+                description: "World's largest Android development community with firmware, ROMs, and tools.",
+                brand: ["multi"],
+                type: "Community",
+                icon: "fas fa-laptop-code"
+            },
+            
+            // Motorola
+            {
+                name: "Motorola Firmware Team",
+                url: "https://mirrors.lolinet.com/firmware/motorola",
+                description: "Unofficial archive of Motorola/Lenovo firmware files with regular updates.",
+                brand: ["motorola"],
+                type: "Archive",
+                icon: "fas fa-archive"
+            },
+            
+            // Nokia
+            {
+                name: "Nokia Firmware Archive",
+                url: "https://nokiafirmware.net",
+                description: "Complete collection of Nokia phone firmware for all models and regions.",
+                brand: ["nokia"],
+                type: "Archive",
+                icon: "fas fa-archive"
+            },
+            
+            // Realme
+            {
+                name: "Realme Firmware",
+                url: "https://realmefirmware.com",
+                description: "Official and unofficial Realme firmware downloads for all models.",
+                brand: ["realme"],
+                type: "Community",
+                icon: "fas fa-download"
+            },
+            
+            // Oppo
+            {
+                name: "Oppo Firmware",
+                url: "https://oppofirmware.com",
+                description: "Oppo stock firmware downloads for all Oppo smartphone models.",
+                brand: ["oppo"],
+                type: "Community",
+                icon: "fas fa-mobile-alt"
+            },
+            
+            // Vivo
+            {
+                name: "Vivo Firmware",
+                url: "https://vivofirmware.com",
+                description: "Vivo stock firmware downloads with flash tools and tutorials.",
+                brand: ["vivo"],
+                type: "Community",
+                icon: "fas fa-download"
+            },
+            
+            // Huawei
+            {
+                name: "Huawei Firmware Database",
+                url: "https://professorjtj.github.io",
+                description: "Unofficial Huawei firmware database with downloads for most models.",
+                brand: ["huawei"],
+                type: "Community",
+                icon: "fas fa-database"
+            },
+            
+            // Asus
+            {
+                name: "Asus ZenFone Firmware",
+                url: "https://zentalk.asus.com",
+                description: "Official Asus ZenTalk forum with firmware downloads for ZenFone devices.",
+                brand: ["asus"],
+                type: "Official",
+                icon: "fas fa-comments"
+            },
+            
+            // LG
+            {
+                name: "LG Firmware",
+                url: "https://lg-firmwares.com",
+                description: "LG phone firmware downloads for all models and regions.",
+                brand: ["lg"],
+                type: "Archive",
+                icon: "fas fa-archive"
+            },
+            
+            // Sony
+            {
+                name: "Xperia Firmware",
+                url: "https://xperiafirmware.com",
+                description: "Sony Xperia firmware downloads with flashtool and instructions.",
+                brand: ["sony"],
+                type: "Community",
+                icon: "fas fa-download"
+            }
+        ];
+        
+        // Populate brand list in sidebar
+        const brandList = document.getElementById('brand-list');
+        
+        // Add "All Brands" option first
+        const allBrandsItem = document.createElement('li');
+        allBrandsItem.innerHTML = `
+            <a href="#all" class="active-brand" id="brand-all">
+                <i class="fas fa-globe"></i> All Brands
+            </a>
+        `;
+        brandList.appendChild(allBrandsItem);
+        
+        // Add individual brands
+        brands.forEach(brand => {
+            const brandItem = document.createElement('li');
+            brandItem.innerHTML = `
+                <a href="#${brand.id}" id="brand-${brand.id}">
+                    <i class="${brand.icon}"></i> ${brand.name}
+                </a>
+            `;
+            brandList.appendChild(brandItem);
+        });
+        
+        // Populate websites grid
+        const websitesGrid = document.getElementById('websites-grid');
+        
+        function renderWebsites(filterBrand = "all") {
+            websitesGrid.innerHTML = "";
+            
+            let filteredWebsites = firmwareWebsites;
+            
+            if (filterBrand !== "all") {
+                filteredWebsites = firmwareWebsites.filter(website => 
+                    website.brand.includes(filterBrand) || website.brand.includes("multi")
+                );
+            }
+            
+            filteredWebsites.forEach(website => {
+                const websiteCard = document.createElement('div');
+                websiteCard.className = 'website-card';
+                websiteCard.innerHTML = `
+                    <div class="website-header">
+                        <div class="website-icon">
+                            <i class="${website.icon}"></i>
+                        </div>
+                        <h3>${website.name}</h3>
+                        <div class="website-type">${website.type}</div>
+                    </div>
+                    <div class="website-body">
+                        <p class="website-description">${website.description}</p>
+                        <div class="website-links">
+                            <a href="${website.url}" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Visit Website
+                            </a>
+                            <button class="btn btn-secondary copy-link" data-url="${website.url}">
+                                <i class="fas fa-copy"></i> Copy Link
+                            </button>
+                        </div>
+                    </div>
+                `;
+                websitesGrid.appendChild(websiteCard);
+            });
+            
+            // Update brand header
+            const brandHeader = document.getElementById('brand-header');
+            if (filterBrand === "all") {
+                brandHeader.innerHTML = `
+                    <div class="brand-logo">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h2>All Firmware Websites</h2>
+                        <p>Complete directory of firmware download sites for all mobile brands</p>
+                    </div>
+                `;
+            } else {
+                const brand = brands.find(b => b.id === filterBrand);
+                brandHeader.innerHTML = `
+                    <div class="brand-logo" style="background-color: ${brand.color}20; color: ${brand.color};">
+                        <i class="${brand.icon}"></i>
+                    </div>
+                    <div class="brand-info">
+                        <h2>${brand.name} Firmware Websites</h2>
+                        <p>Direct links to firmware download sites for ${brand.name} devices</p>
+                    </div>
+                `;
+            }
+            
+            // Update active brand in sidebar
+            document.querySelectorAll('.brand-list a').forEach(link => {
+                link.classList.remove('active-brand');
+            });
+            document.getElementById(`brand-${filterBrand}`).classList.add('active-brand');
+        }
+        
+        // Initial render
+        renderWebsites("all");
+        
+        // Brand filtering
+        document.querySelectorAll('.brand-list a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const brandId = this.getAttribute('href').replace('#', '');
+                renderWebsites(brandId);
+                
+                // Scroll to top of content
+                document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Copy link functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('copy-link') || e.target.closest('.copy-link')) {
+                const button = e.target.classList.contains('copy-link') ? e.target : e.target.closest('.copy-link');
+                const url = button.getAttribute('data-url');
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText(url).then(() => {
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    button.style.background = '#4caf50';
+                    button.style.color = 'white';
+                    
+                    setTimeout(() => {
+                        button.innerHTML = originalHTML;
+                        button.style.background = '';
+                        button.style.color = '';
+                    }, 2000);
+                });
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#brand-')) return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize tooltips for copy buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add title attributes to copy buttons
+            document.querySelectorAll('.copy-link').forEach(button => {
+                button.setAttribute('title', 'Copy link to clipboard');
+            });
+        });
+    </script>
+</body>
+</html>
