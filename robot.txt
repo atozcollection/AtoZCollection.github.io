@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.mobileupdates.info/sitemap.xml
