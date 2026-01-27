@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A To Z Collection - One-Stop Shopping Hub for All Major Indian & International Stores</title>
+    <meta name="description" content="Access Amazon, Flipkart, Myntra, Ajio, Meesho, Snapdeal, Tata Cliq, Nykaa and all shopping platforms from one place. The ultimate A to Z shopping destination in India.">
+    <link rel="canonical" href="https://www.atozcollection.top">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "A To Z Collection",
+        "url": "https://www.atozcollection.top",
+        "logo": "https://www.atozcollection.top/images/logo.png",
+        "description": "One-stop shopping hub aggregating all major Indian and international shopping platforms",
+        "sameAs": [
+            "https://www.facebook.com/atozcollection",
+            "https://www.twitter.com/atozcollection",
+            "https://www.instagram.com/atozcollection"
+        ]
+    }
+    </script>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff416c;
+            --success: #00b09b;
+            --warning: #ff9a00;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient-primary: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            --gradient-success: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9ff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient-primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(106, 17, 203, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            background: linear-gradient(to right, #fff 0%, #ffeb3b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo-icon {
+            color: #ffeb3b;
+            font-size: 32px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .main-nav a:hover, .main-nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: var(--gradient-primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23f9f9ff"/></svg>');
+            background-size: 100% 100px;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            background: var(--gradient-secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+        }
+        
+        /* Trending Stores Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            display: inline-block;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .store-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .store-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .store-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .store-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .visit-btn {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .visit-btn:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+        }
+        
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .category-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Deals Section */
+        .deals-section {
+            background: var(--gradient-primary);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+        }
+        
+        .deals-section .section-title h2 {
+            background: linear-gradient(to right, #fff 0%, #ffeb3b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .deals-section .section-title::after {
+            background: #ffeb3b;
+        }
+        
+        .deals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .deal-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .deal-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .deal-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .blog-img {
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 28px;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links h4, .footer-contact h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .stores-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--gradient-primary);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                visibility: hidden;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            
+            .main-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .main-nav li {
+                margin-bottom: 15px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .stores-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation for cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .store-card, .category-card, .deal-card, .blog-card {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        /* Staggered animation delay */
+        .store-card:nth-child(2) { animation-delay: 0.1s; }
+        .store-card:nth-child(3) { animation-delay: 0.2s; }
+        .store-card:nth-child(4) { animation-delay: 0.3s; }
+        .store-card:nth-child(5) { animation-delay: 0.4s; }
+        .store-card:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag logo-icon"></i>
+                <h1>A To Z Collection</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#stores">All Stores</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#deals">Deals</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>One Platform, All Shopping Sites</h2>
+                <p>Access Amazon, Flipkart, Myntra, Ajio, Meesho, Snapdeal, Tata Cliq, Nykaa and all major Indian & international shopping platforms from a single place. Your ultimate A to Z shopping destination.</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Search for products, brands, or categories...">
+                    <button><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Stores Section -->
+    <section class="section container" id="stores">
+        <div class="section-title">
+            <h2>Top Shopping Destinations</h2>
+            <p>Access all your favorite stores with one click</p>
+        </div>
+        
+        <div class="stores-grid">
+            <!-- Store cards will be dynamically generated -->
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="visit-btn">View All Shopping Sites</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section container" id="categories">
+        <div class="section-title">
+            <h2>Shop By Categories</h2>
+            <p>Find exactly what you're looking for</p>
+        </div>
+        
+        <div class="categories-grid">
+            <!-- Category cards will be dynamically generated -->
+        </div>
+    </section>
+
+    <!-- Deals & Offers Section -->
+    <section class="deals-section" id="deals">
+        <div class="container">
+            <div class="section-title">
+                <h2>Today's Best Deals</h2>
+                <p>Exclusive offers from top shopping sites</p>
+            </div>
+            
+            <div class="deals-grid">
+                <!-- Deal cards will be dynamically generated -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="visit-btn">View All Deals & Offers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section container" id="blog">
+        <div class="section-title">
+            <h2>Latest Shopping Guides</h2>
+            <p>Expert tips and shopping advice</p>
+        </div>
+        
+        <div class="blog-grid">
+            <!-- Blog cards will be dynamically generated -->
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="visit-btn">Read More Blog Articles</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>A To Z Collection</h3>
+                    <p>Your one-stop shopping hub for all major Indian & international shopping platforms. Access everything from A to Z in one place.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#stores">All Stores</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#deals">Deals & Offers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> support@atozcollection.top</p>
+                    <p><i class="fas fa-globe"></i> www.atozcollection.top</p>
+                    <div class="social-icons" style="margin-top: 15px;">
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; margin-right: 15px; font-size: 20px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; font-size: 20px;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 A To Z Collection. All rights reserved. | <a href="#" style="color: #bbb;">Privacy Policy</a> | <a href="#" style="color: #bbb;">Terms of Service</a></p>
+                <p style="margin-top: 10px; font-size: 12px;">This website contains affiliate links. We may earn a commission when you make a purchase through our links.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data for shopping stores
+        const stores = [
+            { name: "Amazon", icon: "fab fa-amazon", color: "#FF9900", description: "Largest online marketplace" },
+            { name: "Flipkart", icon: "fas fa-shopping-cart", color: "#2874F0", description: "India's leading e-commerce platform" },
+            { name: "Myntra", icon: "fas fa-tshirt", color: "#FF3F6C", description: "Fashion & lifestyle store" },
+            { name: "Ajio", icon: "fas fa-gem", color: "#222222", description: "Trendy fashion brands" },
+            { name: "Meesho", icon: "fas fa-users", color: "#F43397", description: "Social commerce platform" },
+            { name: "Snapdeal", icon: "fas fa-tag", color: "#FF6F61", description: "Value shopping destination" },
+            { name: "Tata Cliq", icon: "fas fa-star", color: "#3A3A3A", description: "Tata group's shopping platform" },
+            { name: "Nykaa", icon: "fas fa-paint-brush", color: "#D71A64", description: "Beauty & cosmetics store" },
+            { name: "ShopClues", icon: "fas fa-bolt", color: "#FF6600", description: "Affordable shopping" },
+            { name: "Amazon Pantry", icon: "fas fa-shopping-basket", color: "#FF9900", description: "Groceries & daily needs" },
+            { name: "BigBasket", icon: "fas fa-apple-alt", color: "#8BC34A", description: "Online supermarket" },
+            { name: "FirstCry", icon: "fas fa-baby", color: "#FF6699", description: "Kids & baby products" }
+        ];
+        
+        // Data for categories
+        const categories = [
+            { name: "Men Fashion", icon: "fas fa-male", count: "1200+ Brands" },
+            { name: "Women Fashion", icon: "fas fa-female", count: "2500+ Brands" },
+            { name: "Electronics", icon: "fas fa-laptop", count: "850+ Brands" },
+            { name: "Mobiles", icon: "fas fa-mobile-alt", count: "50+ Brands" },
+            { name: "Home & Kitchen", icon: "fas fa-home", count: "900+ Brands" },
+            { name: "Shoes", icon: "fas fa-shoe-prints", count: "300+ Brands" },
+            { name: "Accessories", icon: "fas fa-glasses", count: "600+ Brands" },
+            { name: "Beauty", icon: "fas fa-spa", count: "400+ Brands" },
+            { name: "Sports", icon: "fas fa-running", count: "200+ Brands" },
+            { name: "Books", icon: "fas fa-book", count: "1M+ Titles" },
+            { name: "Toys", icon: "fas fa-gamepad", count: "500+ Brands" },
+            { name: "Automotive", icon: "fas fa-car", count: "150+ Brands" }
+        ];
+        
+        // Data for deals
+        const deals = [
+            { title: "Up to 70% Off on Fashion", store: "Myntra", expiry: "Ends in 2 days", code: "MYNTRA70" },
+            { title: "Extra 10% Off on Electronics", store: "Amazon", expiry: "Ends tomorrow", code: "ELEC10" },
+            { title: "Flat ₹500 Off on First Order", store: "Ajio", expiry: "New users only", code: "AJIO500" },
+            { title: "Buy 1 Get 1 Free on Beauty", store: "Nykaa", expiry: "Ends in 5 days", code: "B1G1NYX" },
+            { title: "No Cost EMI on Mobiles", store: "Flipkart", expiry: "Limited period", code: "NOCOSTEMI" },
+            { title: "Free Delivery on All Orders", store: "Tata Cliq", expiry: "Above ₹999", code: "FREESHIP" }
+        ];
+        
+        // Data for blog articles
+        const blogPosts = [
+            { title: "Best Online Shopping Sites in India 2023", excerpt: "A comprehensive guide to the top e-commerce platforms for Indian shoppers with pros and cons of each.", readTime: "5 min" },
+            { title: "How to Find the Best Deals & Discounts Online", excerpt: "Expert tips on comparing prices, using coupon codes, and getting the lowest prices across shopping sites.", readTime: "7 min" },
+            { title: "Cheap Fashion Shopping Websites for Budget Buyers", excerpt: "Discover affordable fashion platforms that offer trendy clothing without breaking the bank.", readTime: "4 min" },
+            { title: "All Shopping Apps in One Place: A Complete Guide", excerpt: "Learn how to streamline your shopping experience by accessing all major apps from a single platform.", readTime: "6 min" }
+        ];
+        
+        // Generate store cards
+        function generateStoreCards() {
+            const storesGrid = document.querySelector('.stores-grid');
+            storesGrid.innerHTML = '';
+            
+            stores.forEach(store => {
+                const storeCard = document.createElement('div');
+                storeCard.className = 'store-card';
+                storeCard.innerHTML = `
+                    <div class="store-logo" style="color: ${store.color}">
+                        <i class="${store.icon}"></i>
+                    </div>
+                    <h3>${store.name}</h3>
+                    <p>${store.description}</p>
+                    <a href="#" class="visit-btn">Visit Store</a>
+                `;
+                storesGrid.appendChild(storeCard);
+            });
+        }
+        
+        // Generate category cards
+        function generateCategoryCards() {
+            const categoriesGrid = document.querySelector('.categories-grid');
+            categoriesGrid.innerHTML = '';
+            
+            categories.forEach(category => {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.innerHTML = `
+                    <div class="category-icon">
+                        <i class="${category.icon}"></i>
+                    </div>
+                    <h3>${category.name}</h3>
+                    <p>${category.count}</p>
+                `;
+                categoriesGrid.appendChild(categoryCard);
+            });
+        }
+        
+        // Generate deal cards
+        function generateDealCards() {
+            const dealsGrid = document.querySelector('.deals-grid');
+            dealsGrid.innerHTML = '';
+            
+            deals.forEach(deal => {
+                const dealCard = document.createElement('div');
+                dealCard.className = 'deal-card';
+                dealCard.innerHTML = `
+                    <span class="deal-badge">Hot Deal</span>
+                    <h3 style="color: white;">${deal.title}</h3>
+                    <p><i class="fas fa-store"></i> ${deal.store}</p>
+                    <p><i class="far fa-clock"></i> ${deal.expiry}</p>
+                    <p><i class="fas fa-tag"></i> Use Code: <strong>${deal.code}</strong></p>
+                    <a href="#" class="visit-btn" style="margin-top: 15px; display: inline-block;">Grab Deal</a>
+                `;
+                dealsGrid.appendChild(dealCard);
+            });
+        }
+        
+        // Generate blog cards
+        function generateBlogCards() {
+            const blogGrid = document.querySelector('.blog-grid');
+            blogGrid.innerHTML = '';
+            
+            blogPosts.forEach(post => {
+                const blogCard = document.createElement('div');
+                blogCard.className = 'blog-card';
+                blogCard.innerHTML = `
+                    <div class="blog-img">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>${post.title}</h3>
+                        <p>${post.excerpt}</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                            <span><i class="far fa-clock"></i> ${post.readTime} read</span>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                `;
+                blogGrid.appendChild(blogCard);
+            });
+        }
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+            this.innerHTML = document.getElementById('mainNav').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mainNav').classList.remove('active');
+                document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStoreCards();
+            generateCategoryCards();
+            generateDealCards();
+            generateBlogCards();
+            
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards for animation
+            document.querySelectorAll('.store-card, .category-card, .deal-card, .blog-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-box button');
+            
+            searchButton.addEventListener('click', function() {
+                if (searchInput.value.trim() !== '') {
+                    alert(`Searching for: ${searchInput.value}\n\nIn a full implementation, this would redirect to search results with affiliate links to relevant products.`);
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                    alert(`Searching for: ${searchInput.value}\n\nIn a full implementation, this would redirect to search results with affiliate links to relevant products.`);
+                }
+            });
+            
+            // Visit store button functionality
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('visit-btn') || e.target.closest('.visit-btn')) {
+                    e.preventDefault();
+                    const storeName = e.target.closest('.store-card') 
+                        ? e.target.closest('.store-card').querySelector('h3').textContent 
+                        : 'the store';
+                    alert(`In a full implementation, this would redirect to ${storeName} with affiliate tracking enabled.\n\nThis is where the monetization happens - each click would generate potential commission if a purchase is made.`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
