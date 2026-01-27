@@ -666,7 +666,7 @@
         </div>
         
         <div class="stores-grid">
-            <!-- Store cards will be dynamically generated -->
+            <!-- Store cards will be dynamically generated with actual links -->
         </div>
         
         <div style="text-align: center; margin-top: 40px;">
@@ -756,26 +756,237 @@
             
             <div class="copyright">
                 <p>&copy; 2023 A To Z Collection. All rights reserved. | <a href="#" style="color: #bbb;">Privacy Policy</a> | <a href="#" style="color: #bbb;">Terms of Service</a></p>
-                <p style="margin-top: 10px; font-size: 12px;">This website contains affiliate links. We may earn a commission when you make a purchase through our links.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Data for shopping stores
+        // Data for shopping stores WITH ACTUAL WEBSITE LINKS (NO AFFILIATE)
         const stores = [
-            { name: "Amazon", icon: "fab fa-amazon", color: "#FF9900", description: "Largest online marketplace" },
-            { name: "Flipkart", icon: "fas fa-shopping-cart", color: "#2874F0", description: "India's leading e-commerce platform" },
-            { name: "Myntra", icon: "fas fa-tshirt", color: "#FF3F6C", description: "Fashion & lifestyle store" },
-            { name: "Ajio", icon: "fas fa-gem", color: "#222222", description: "Trendy fashion brands" },
-            { name: "Meesho", icon: "fas fa-users", color: "#F43397", description: "Social commerce platform" },
-            { name: "Snapdeal", icon: "fas fa-tag", color: "#FF6F61", description: "Value shopping destination" },
-            { name: "Tata Cliq", icon: "fas fa-star", color: "#3A3A3A", description: "Tata group's shopping platform" },
-            { name: "Nykaa", icon: "fas fa-paint-brush", color: "#D71A64", description: "Beauty & cosmetics store" },
-            { name: "ShopClues", icon: "fas fa-bolt", color: "#FF6600", description: "Affordable shopping" },
-            { name: "Amazon Pantry", icon: "fas fa-shopping-basket", color: "#FF9900", description: "Groceries & daily needs" },
-            { name: "BigBasket", icon: "fas fa-apple-alt", color: "#8BC34A", description: "Online supermarket" },
-            { name: "FirstCry", icon: "fas fa-baby", color: "#FF6699", description: "Kids & baby products" }
+            { 
+                name: "Amazon", 
+                icon: "fab fa-amazon", 
+                color: "#FF9900", 
+                description: "Largest online marketplace",
+                url: "https://www.amazon.in"
+            },
+            { 
+                name: "Flipkart", 
+                icon: "fas fa-shopping-cart", 
+                color: "#2874F0", 
+                description: "India's leading e-commerce platform",
+                url: "https://www.flipkart.com"
+            },
+            { 
+                name: "Myntra", 
+                icon: "fas fa-tshirt", 
+                color: "#FF3F6C", 
+                description: "Fashion & lifestyle store",
+                url: "https://www.myntra.com"
+            },
+            { 
+                name: "Ajio", 
+                icon: "fas fa-gem", 
+                color: "#222222", 
+                description: "Trendy fashion brands",
+                url: "https://www.ajio.com"
+            },
+            { 
+                name: "Meesho", 
+                icon: "fas fa-users", 
+                color: "#F43397", 
+                description: "Social commerce platform",
+                url: "https://www.meesho.com"
+            },
+            { 
+                name: "Snapdeal", 
+                icon: "fas fa-tag", 
+                color: "#FF6F61", 
+                description: "Value shopping destination",
+                url: "https://www.snapdeal.com"
+            },
+            { 
+                name: "Tata Cliq", 
+                icon: "fas fa-star", 
+                color: "#3A3A3A", 
+                description: "Tata group's shopping platform",
+                url: "https://www.tatacliq.com"
+            },
+            { 
+                name: "Nykaa", 
+                icon: "fas fa-paint-brush", 
+                color: "#D71A64", 
+                description: "Beauty & cosmetics store",
+                url: "https://www.nykaa.com"
+            },
+            { 
+                name: "ShopClues", 
+                icon: "fas fa-bolt", 
+                color: "#FF6600", 
+                description: "Affordable shopping",
+                url: "https://www.shopclues.com"
+            },
+            { 
+                name: "Amazon Pantry", 
+                icon: "fas fa-shopping-basket", 
+                color: "#FF9900", 
+                description: "Groceries & daily needs",
+                url: "https://www.amazon.in/pantry"
+            },
+            { 
+                name: "BigBasket", 
+                icon: "fas fa-apple-alt", 
+                color: "#8BC34A", 
+                description: "Online supermarket",
+                url: "https://www.bigbasket.com"
+            },
+            { 
+                name: "FirstCry", 
+                icon: "fas fa-baby", 
+                color: "#FF6699", 
+                description: "Kids & baby products",
+                url: "https://www.firstcry.com"
+            },
+            { 
+                name: "Limelight", 
+                icon: "fas fa-crown", 
+                color: "#9C27B0", 
+                description: "Premium fashion brands",
+                url: "https://www.limeroad.com"
+            },
+            { 
+                name: "Purplle", 
+                icon: "fas fa-spa", 
+                color: "#9C27B0", 
+                description: "Beauty & wellness products",
+                url: "https://www.purplle.com"
+            },
+            { 
+                name: "Mamaearth", 
+                icon: "fas fa-leaf", 
+                color: "#4CAF50", 
+                description: "Natural beauty products",
+                url: "https://mamaearth.in"
+            },
+            { 
+                name: "Boat Lifestyle", 
+                icon: "fas fa-headphones", 
+                color: "#000000", 
+                description: "Audio & electronics",
+                url: "https://www.boat-lifestyle.com"
+            },
+            { 
+                name: "Reliance Digital", 
+                icon: "fas fa-tv", 
+                color: "#0047AB", 
+                description: "Electronics & appliances",
+                url: "https://www.reliancedigital.in"
+            },
+            { 
+                name: "Croma", 
+                icon: "fas fa-plug", 
+                color: "#E30022", 
+                description: "Electronics retailer",
+                url: "https://www.croma.com"
+            },
+            { 
+                name: "Pepperfry", 
+                icon: "fas fa-couch", 
+                color: "#FF6B35", 
+                description: "Furniture & home decor",
+                url: "https://www.pepperfry.com"
+            },
+            { 
+                name: "Urban Ladder", 
+                icon: "fas fa-chair", 
+                color: "#00A896", 
+                description: "Modern furniture",
+                url: "https://www.urbanladder.com"
+            },
+            { 
+                name: "Wakefit", 
+                icon: "fas fa-bed", 
+                color: "#5D3FD3", 
+                description: "Mattresses & sleep solutions",
+                url: "https://www.wakefit.co"
+            },
+            { 
+                name: "Lenskart", 
+                icon: "fas fa-glasses", 
+                color: "#00B2A9", 
+                description: "Eyewear & glasses",
+                url: "https://www.lenskart.com"
+            },
+            { 
+                name: "Cult Fit", 
+                icon: "fas fa-dumbbell", 
+                color: "#FF0000", 
+                description: "Fitness & wellness",
+                url: "https://www.cult.fit"
+            },
+            { 
+                name: "Swiggy Instamart", 
+                icon: "fas fa-shopping-bag", 
+                color: "#FF6B35", 
+                description: "Quick grocery delivery",
+                url: "https://www.instamart.swiggy.com"
+            },
+            { 
+                name: "Zomato", 
+                icon: "fas fa-utensils", 
+                color: "#E23744", 
+                description: "Food delivery & dining",
+                url: "https://www.zomato.com"
+            },
+            { 
+                name: "Swiggy", 
+                icon: "fas fa-motorcycle", 
+                color: "#FF6B35", 
+                description: "Food delivery service",
+                url: "https://www.swiggy.com"
+            },
+            { 
+                name: "DMart", 
+                icon: "fas fa-store", 
+                color: "#0047AB", 
+                description: "Supermarket chain",
+                url: "https://www.dmart.in"
+            },
+            { 
+                name: "JioMart", 
+                icon: "fas fa-shopping-cart", 
+                color: "#0088FF", 
+                description: "Reliance's online mart",
+                url: "https://www.jiomart.com"
+            },
+            { 
+                name: "Healthkart", 
+                icon: "fas fa-heartbeat", 
+                color: "#FF0000", 
+                description: "Health & nutrition products",
+                url: "https://www.healthkart.com"
+            },
+            { 
+                name: "Netmeds", 
+                icon: "fas fa-pills", 
+                color: "#0088CC", 
+                description: "Online pharmacy",
+                url: "https://www.netmeds.com"
+            },
+            { 
+                name: "1mg", 
+                icon: "fas fa-stethoscope", 
+                color: "#FF6B00", 
+                description: "Healthcare platform",
+                url: "https://www.1mg.com"
+            },
+            { 
+                name: "PharmEasy", 
+                icon: "fas fa-plus-square", 
+                color: "#0F9D58", 
+                description: "Medicine delivery",
+                url: "https://www.pharmeasy.in"
+            }
         ];
         
         // Data for categories
@@ -794,25 +1005,81 @@
             { name: "Automotive", icon: "fas fa-car", count: "150+ Brands" }
         ];
         
-        // Data for deals
+        // Data for deals WITH ACTUAL LINKS (NO AFFILIATE)
         const deals = [
-            { title: "Up to 70% Off on Fashion", store: "Myntra", expiry: "Ends in 2 days", code: "MYNTRA70" },
-            { title: "Extra 10% Off on Electronics", store: "Amazon", expiry: "Ends tomorrow", code: "ELEC10" },
-            { title: "Flat ₹500 Off on First Order", store: "Ajio", expiry: "New users only", code: "AJIO500" },
-            { title: "Buy 1 Get 1 Free on Beauty", store: "Nykaa", expiry: "Ends in 5 days", code: "B1G1NYX" },
-            { title: "No Cost EMI on Mobiles", store: "Flipkart", expiry: "Limited period", code: "NOCOSTEMI" },
-            { title: "Free Delivery on All Orders", store: "Tata Cliq", expiry: "Above ₹999", code: "FREESHIP" }
+            { 
+                title: "Up to 70% Off on Fashion", 
+                store: "Myntra", 
+                expiry: "Ends in 2 days", 
+                code: "MYNTRA70",
+                url: "https://www.myntra.com/sale"
+            },
+            { 
+                title: "Extra 10% Off on Electronics", 
+                store: "Amazon", 
+                expiry: "Ends tomorrow", 
+                code: "ELEC10",
+                url: "https://www.amazon.in/gp/goldbox"
+            },
+            { 
+                title: "Flat ₹500 Off on First Order", 
+                store: "Ajio", 
+                expiry: "New users only", 
+                code: "AJIO500",
+                url: "https://www.ajio.com/offers"
+            },
+            { 
+                title: "Buy 1 Get 1 Free on Beauty", 
+                store: "Nykaa", 
+                expiry: "Ends in 5 days", 
+                code: "B1G1NYX",
+                url: "https://www.nykaa.com/offers"
+            },
+            { 
+                title: "No Cost EMI on Mobiles", 
+                store: "Flipkart", 
+                expiry: "Limited period", 
+                code: "NOCOSTEMI",
+                url: "https://www.flipkart.com/offers-store"
+            },
+            { 
+                title: "Free Delivery on All Orders", 
+                store: "Tata Cliq", 
+                expiry: "Above ₹999", 
+                code: "FREESHIP",
+                url: "https://www.tatacliq.com/offers"
+            }
         ];
         
         // Data for blog articles
         const blogPosts = [
-            { title: "Best Online Shopping Sites in India 2023", excerpt: "A comprehensive guide to the top e-commerce platforms for Indian shoppers with pros and cons of each.", readTime: "5 min" },
-            { title: "How to Find the Best Deals & Discounts Online", excerpt: "Expert tips on comparing prices, using coupon codes, and getting the lowest prices across shopping sites.", readTime: "7 min" },
-            { title: "Cheap Fashion Shopping Websites for Budget Buyers", excerpt: "Discover affordable fashion platforms that offer trendy clothing without breaking the bank.", readTime: "4 min" },
-            { title: "All Shopping Apps in One Place: A Complete Guide", excerpt: "Learn how to streamline your shopping experience by accessing all major apps from a single platform.", readTime: "6 min" }
+            { 
+                title: "Best Online Shopping Sites in India 2023", 
+                excerpt: "A comprehensive guide to the top e-commerce platforms for Indian shoppers with pros and cons of each.", 
+                readTime: "5 min",
+                url: "#"
+            },
+            { 
+                title: "How to Find the Best Deals & Discounts Online", 
+                excerpt: "Expert tips on comparing prices, using coupon codes, and getting the lowest prices across shopping sites.", 
+                readTime: "7 min",
+                url: "#"
+            },
+            { 
+                title: "Cheap Fashion Shopping Websites for Budget Buyers", 
+                excerpt: "Discover affordable fashion platforms that offer trendy clothing without breaking the bank.", 
+                readTime: "4 min",
+                url: "#"
+            },
+            { 
+                title: "All Shopping Apps in One Place: A Complete Guide", 
+                excerpt: "Learn how to streamline your shopping experience by accessing all major apps from a single platform.", 
+                readTime: "6 min",
+                url: "#"
+            }
         ];
         
-        // Generate store cards
+        // Generate store cards WITH ACTUAL LINKS (NO AFFILIATE)
         function generateStoreCards() {
             const storesGrid = document.querySelector('.stores-grid');
             storesGrid.innerHTML = '';
@@ -820,13 +1087,14 @@
             stores.forEach(store => {
                 const storeCard = document.createElement('div');
                 storeCard.className = 'store-card';
+                
                 storeCard.innerHTML = `
                     <div class="store-logo" style="color: ${store.color}">
                         <i class="${store.icon}"></i>
                     </div>
                     <h3>${store.name}</h3>
                     <p>${store.description}</p>
-                    <a href="#" class="visit-btn">Visit Store</a>
+                    <a href="${store.url}" target="_blank" rel="noopener noreferrer" class="visit-btn">Visit Store</a>
                 `;
                 storesGrid.appendChild(storeCard);
             });
@@ -851,7 +1119,7 @@
             });
         }
         
-        // Generate deal cards
+        // Generate deal cards WITH ACTUAL LINKS (NO AFFILIATE)
         function generateDealCards() {
             const dealsGrid = document.querySelector('.deals-grid');
             dealsGrid.innerHTML = '';
@@ -865,7 +1133,7 @@
                     <p><i class="fas fa-store"></i> ${deal.store}</p>
                     <p><i class="far fa-clock"></i> ${deal.expiry}</p>
                     <p><i class="fas fa-tag"></i> Use Code: <strong>${deal.code}</strong></p>
-                    <a href="#" class="visit-btn" style="margin-top: 15px; display: inline-block;">Grab Deal</a>
+                    <a href="${deal.url}" target="_blank" rel="noopener noreferrer" class="visit-btn" style="margin-top: 15px; display: inline-block;">Grab Deal</a>
                 `;
                 dealsGrid.appendChild(dealCard);
             });
@@ -888,7 +1156,7 @@
                         <p>${post.excerpt}</p>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
                             <span><i class="far fa-clock"></i> ${post.readTime} read</span>
-                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <a href="${post.url}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 `;
@@ -948,24 +1216,28 @@
             
             searchButton.addEventListener('click', function() {
                 if (searchInput.value.trim() !== '') {
-                    alert(`Searching for: ${searchInput.value}\n\nIn a full implementation, this would redirect to search results with affiliate links to relevant products.`);
+                    // Redirect to Amazon search without affiliate tag
+                    const searchQuery = encodeURIComponent(searchInput.value);
+                    window.open(`https://www.amazon.in/s?k=${searchQuery}`, '_blank');
                 }
             });
             
             searchInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter' && searchInput.value.trim() !== '') {
-                    alert(`Searching for: ${searchInput.value}\n\nIn a full implementation, this would redirect to search results with affiliate links to relevant products.`);
+                    const searchQuery = encodeURIComponent(searchInput.value);
+                    window.open(`https://www.amazon.in/s?k=${searchQuery}`, '_blank');
                 }
             });
             
-            // Visit store button functionality
+            // Track outbound clicks for analytics
             document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('visit-btn') || e.target.closest('.visit-btn')) {
-                    e.preventDefault();
-                    const storeName = e.target.closest('.store-card') 
-                        ? e.target.closest('.store-card').querySelector('h3').textContent 
-                        : 'the store';
-                    alert(`In a full implementation, this would redirect to ${storeName} with affiliate tracking enabled.\n\nThis is where the monetization happens - each click would generate potential commission if a purchase is made.`);
+                const link = e.target.closest('a');
+                if (link && link.href && link.href.startsWith('http') && 
+                    !link.href.includes('atozcollection.top') && 
+                    link.target === '_blank') {
+                    
+                    // Here you can add analytics tracking
+                    console.log(`Outbound click to: ${link.href}`);
                 }
             });
         });
